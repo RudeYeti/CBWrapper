@@ -8,37 +8,22 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
-import org.bukkit.Achievement;
-import org.bukkit.Effect;
-import org.bukkit.EntityEffect;
-import org.bukkit.GameMode;
-import org.bukkit.Instrument;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.Note;
-import org.bukkit.Server;
-import org.bukkit.Sound;
-import org.bukkit.Statistic;
-import org.bukkit.WeatherType;
-import org.bukkit.World;
+import org.bukkit.*;
+import org.bukkit.advancement.Advancement;
+import org.bukkit.advancement.AdvancementProgress;
+import org.bukkit.attribute.Attribute;
+import org.bukkit.attribute.AttributeInstance;
 import org.bukkit.block.Block;
+import org.bukkit.block.BlockFace;
+import org.bukkit.block.PistonMoveReaction;
+import org.bukkit.block.data.BlockData;
 import org.bukkit.conversations.Conversation;
 import org.bukkit.conversations.ConversationAbandonedEvent;
-import org.bukkit.entity.Arrow;
-import org.bukkit.entity.Egg;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.EntityType;
-import org.bukkit.entity.Player;
-import org.bukkit.entity.Projectile;
-import org.bukkit.entity.Snowball;
+import org.bukkit.entity.*;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.player.PlayerTeleportEvent.TeleportCause;
-import org.bukkit.inventory.EntityEquipment;
-import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.InventoryView;
+import org.bukkit.inventory.*;
 import org.bukkit.inventory.InventoryView.Property;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.map.MapView;
 import org.bukkit.metadata.MetadataValue;
 import org.bukkit.permissions.Permission;
@@ -71,7 +56,54 @@ public class DummyPlayer implements Player {
     }
     @Override public void closeInventory() {}
     @Override public Inventory getEnderChest() { return null; }
+
+    @Override
+    public MainHand getMainHand() {
+        return null;
+    }
+
     @Override public int getExpToLevel() { return 0; }
+
+    @Override
+    public boolean discoverRecipe(NamespacedKey namespacedKey) {
+        return false;
+    }
+
+    @Override
+    public int discoverRecipes(Collection<NamespacedKey> collection) {
+        return 0;
+    }
+
+    @Override
+    public boolean undiscoverRecipe(NamespacedKey namespacedKey) {
+        return false;
+    }
+
+    @Override
+    public int undiscoverRecipes(Collection<NamespacedKey> collection) {
+        return 0;
+    }
+
+    @Override
+    public Entity getShoulderEntityLeft() {
+        return null;
+    }
+
+    @Override
+    public void setShoulderEntityLeft(Entity entity) {
+
+    }
+
+    @Override
+    public Entity getShoulderEntityRight() {
+        return null;
+    }
+
+    @Override
+    public void setShoulderEntityRight(Entity entity) {
+
+    }
+
     @Override public GameMode getGameMode() { return GameMode.CREATIVE; }
     @Override public PlayerInventory getInventory() { return null; }
     @Override public ItemStack getItemInHand() { return null; }
@@ -80,14 +112,47 @@ public class DummyPlayer implements Player {
     @Override public InventoryView getOpenInventory() { return null; } 
     @Override public int getSleepTicks() { return 0; }
     @Override public boolean isBlocking() { return false; }
+
+    @Override
+    public boolean isHandRaised() {
+        return false;
+    }
+
     @Override public boolean isSleeping() { return false; }
     @Override public InventoryView openEnchanting(Location arg0, boolean arg1) { return null; }
     @Override public InventoryView openInventory(Inventory arg0) { return null; }
     @Override public void openInventory(InventoryView arg0) { }
+
+    @Override
+    public InventoryView openMerchant(Villager villager, boolean b) {
+        return null;
+    }
+
+    @Override
+    public InventoryView openMerchant(Merchant merchant, boolean b) {
+        return null;
+    }
+
     @Override public InventoryView openWorkbench(Location arg0, boolean arg1) { return null; }
     @Override public void setGameMode(GameMode arg0) { }
     @Override public void setItemInHand(ItemStack arg0) { }
     @Override public void setItemOnCursor(ItemStack arg0) { }
+
+    @Override
+    public boolean hasCooldown(Material material) {
+        return false;
+    }
+
+    @Override
+    public int getCooldown(Material material) {
+        return 0;
+    }
+
+    @Override
+    public void setCooldown(Material material, int i) {
+
+    }
+
     @Override public boolean setWindowProperty(Property arg0, int arg1) { return false; }
     @Override public boolean addPotionEffect(PotionEffect arg0) { return false; }
     @Override public boolean addPotionEffect(PotionEffect arg0, boolean arg1) { return false; }
@@ -100,16 +165,19 @@ public class DummyPlayer implements Player {
     @Override public Location getEyeLocation() { return new Location(world, x, y, z); }
     @Override public Player getKiller() { return null; }
     @Override public double getLastDamage() { return 0; }
-    @Override @Deprecated public List<Block> getLastTwoTargetBlocks(HashSet<Byte> arg0, int arg1) { return null; }
-    @Override @Deprecated public List<Block> getLineOfSight(HashSet<Byte> arg0, int arg1) { return null; }
     @Override public int getMaximumAir() { return 0; }
     @Override public int getMaximumNoDamageTicks() { return 0; }
     @Override public int getNoDamageTicks() { return 0; }
     @Override public int getRemainingAir() { return 0; }
     @Override public boolean getRemoveWhenFarAway() { return false; }
-    @Override @Deprecated public Block getTargetBlock(HashSet<Byte> arg0, int arg1) { return null; }
     @Override public boolean hasLineOfSight(Entity arg0) { return false; }
     @Override public boolean hasPotionEffect(PotionEffectType arg0) { return false; }
+
+    @Override
+    public PotionEffect getPotionEffect(PotionEffectType potionEffectType) {
+        return null;
+    }
+
     @Override public <T extends Projectile> T launchProjectile(Class<? extends T> arg0) { return null; }
     @Override public void removePotionEffect(PotionEffectType arg0) { }
     @Override public void setCanPickupItems(boolean arg0) { }
@@ -118,9 +186,6 @@ public class DummyPlayer implements Player {
     @Override public void setNoDamageTicks(int arg0) { }
     @Override public void setRemainingAir(int arg0) { }
     @Override public void setRemoveWhenFarAway(boolean arg0) { }
-    @Override @Deprecated public Arrow shootArrow() { return null; }
-    @Override @Deprecated public Egg throwEgg() { return null; }
-    @Override @Deprecated public Snowball throwSnowball() { return null; }
     @Override public boolean eject() { return false; }
     @Override public int getEntityId() { return 0; }
     @Override public float getFallDistance() { return 0; }
@@ -132,11 +197,33 @@ public class DummyPlayer implements Player {
     @Override public List<Entity> getNearbyEntities(double arg0, double arg1, double arg2) { return null; }
     @Override public Entity getPassenger() { return null; }
     @Override public Server getServer() { return server; }
+
+    @Override
+    public boolean isPersistent() {
+        return false;
+    }
+
+    @Override
+    public void setPersistent(boolean b) {
+
+    }
+
     @Override public int getTicksLived() { return 0; }
     @Override public EntityType getType() { return EntityType.PLAYER; }
     @Override public UUID getUniqueId() { return uuid; }
     @Override public Entity getVehicle() { return null; }
     @Override public Vector getVelocity() { return null; }
+
+    @Override
+    public double getHeight() {
+        return 0;
+    }
+
+    @Override
+    public double getWidth() {
+        return 0;
+    }
+
     @Override public World getWorld() { return world; }
     @Override public boolean isDead() { return false; }
     @Override public boolean isEmpty() { return false; }
@@ -149,6 +236,22 @@ public class DummyPlayer implements Player {
     @Override public void setFireTicks(int arg0) { }
     @Override public void setLastDamageCause(EntityDamageEvent arg0) { }
     @Override public boolean setPassenger(Entity arg0) { return false; }
+
+    @Override
+    public List<Entity> getPassengers() {
+        return null;
+    }
+
+    @Override
+    public boolean addPassenger(Entity entity) {
+        return false;
+    }
+
+    @Override
+    public boolean removePassenger(Entity entity) {
+        return false;
+    }
+
     @Override public void setTicksLived(int arg0) { }
     @Override public void setVelocity(Vector arg0) { }
     @Override public boolean teleport(Location arg0) {
@@ -195,7 +298,6 @@ public class DummyPlayer implements Player {
     @Override public boolean isBanned() { return false; }
     @Override public boolean isOnline() { return true; }
     @Override public boolean isWhitelisted() { return true; }
-    @Override public void setBanned(boolean arg0) { }
     @Override public void setWhitelisted(boolean arg0) { }
     @Override public Map<String, Object> serialize() { return null; }
     @Override public Set<String> getListeningPluginChannels() { return null; }
@@ -222,6 +324,12 @@ public class DummyPlayer implements Player {
     @Override public void giveExp(int arg0) { }
     @Override public void giveExpLevels(int arg0) { }
     @Override public void hidePlayer(Player arg0) { }
+
+    @Override
+    public void hidePlayer(Plugin plugin, Player player) {
+
+    }
+
     @Override public void incrementStatistic(Statistic arg0) { }
     @Override public void incrementStatistic(Statistic arg0, int arg1) { }
     @Override public void incrementStatistic(Statistic arg0, Material arg1) { }
@@ -244,7 +352,12 @@ public class DummyPlayer implements Player {
     @Override public void resetPlayerTime() { }
     @Override public void saveData() { }
     @Override @Deprecated public void sendBlockChange(Location arg0, Material arg1, byte arg2) { }
-    @Override @Deprecated  public void sendBlockChange(Location arg0, int arg1, byte arg2) { }
+
+    @Override
+    public void sendBlockChange(Location location, BlockData blockData) {
+
+    }
+
     @Override @Deprecated public boolean sendChunkChange(Location arg0, int arg1, int arg2, int arg3, byte[] arg4) { return false; }
     @Override public void sendMap(MapView arg0) { }
     @Override public void sendRawMessage(String arg0) { }
@@ -260,6 +373,32 @@ public class DummyPlayer implements Player {
     @Override public void setFoodLevel(int arg0) { }
     @Override public void setLevel(int arg0) { }
     @Override public void setPlayerListName(String arg0) { }
+
+    @Override
+    public String getPlayerListHeader() {
+        return null;
+    }
+
+    @Override
+    public String getPlayerListFooter() {
+        return null;
+    }
+
+    @Override
+    public void setPlayerListHeader(String s) {
+
+    }
+
+    @Override
+    public void setPlayerListFooter(String s) {
+
+    }
+
+    @Override
+    public void setPlayerListHeaderFooter(String s, String s1) {
+
+    }
+
     @Override public void setPlayerTime(long arg0, boolean arg1) { }
     @Override public void setSaturation(float arg0) { }
     @Override public void setSleepingIgnored(boolean arg0) { }
@@ -269,9 +408,91 @@ public class DummyPlayer implements Player {
     @Override public void setTotalExperience(int arg0) { }
     @Override public void setWalkSpeed(float arg0) throws IllegalArgumentException { }
     @Override public void showPlayer(Player arg0) { }
+
+    @Override
+    public void showPlayer(Plugin plugin, Player player) {
+
+    }
+
     @Override @Deprecated public void updateInventory() { }
     @Override public String getCustomName() { return null; }
     @Override public boolean isCustomNameVisible() { return false; }
+
+    @Override
+    public void setGlowing(boolean b) {
+
+    }
+
+    @Override
+    public boolean isGlowing() {
+        return false;
+    }
+
+    @Override
+    public void setInvulnerable(boolean b) {
+
+    }
+
+    @Override
+    public boolean isInvulnerable() {
+        return false;
+    }
+
+    @Override
+    public boolean isSilent() {
+        return false;
+    }
+
+    @Override
+    public void setSilent(boolean b) {
+
+    }
+
+    @Override
+    public boolean hasGravity() {
+        return false;
+    }
+
+    @Override
+    public void setGravity(boolean b) {
+
+    }
+
+    @Override
+    public int getPortalCooldown() {
+        return 0;
+    }
+
+    @Override
+    public void setPortalCooldown(int i) {
+
+    }
+
+    @Override
+    public Set<String> getScoreboardTags() {
+        return null;
+    }
+
+    @Override
+    public boolean addScoreboardTag(String s) {
+        return false;
+    }
+
+    @Override
+    public boolean removeScoreboardTag(String s) {
+        return false;
+    }
+
+    @Override
+    public PistonMoveReaction getPistonMoveReaction() {
+        return null;
+    }
+
+    @Override
+    public BlockFace getFacing() {
+        return null;
+    }
+
     @Override public void setCustomName(String arg0) { }
     @Override public void setCustomNameVisible(boolean arg0) { }
     @Override public WeatherType getPlayerWeather() { return null; }
@@ -286,14 +507,203 @@ public class DummyPlayer implements Player {
     @Override public void setHealth(double arg0) {  }
     @Override public void setMaxHealth(double arg0) {  }
     @Override public double getHealthScale() { return 0; }
+
+    @Override
+    public Entity getSpectatorTarget() {
+        return null;
+    }
+
+    @Override
+    public void setSpectatorTarget(Entity entity) {
+
+    }
+
+    @Override
+    public void sendTitle(String s, String s1) {
+
+    }
+
+    @Override
+    public void sendTitle(String s, String s1, int i, int i1, int i2) {
+
+    }
+
+    @Override
+    public void resetTitle() {
+
+    }
+
+    @Override
+    public void spawnParticle(Particle particle, Location location, int i) {
+
+    }
+
+    @Override
+    public void spawnParticle(Particle particle, double v, double v1, double v2, int i) {
+
+    }
+
+    @Override
+    public <T> void spawnParticle(Particle particle, Location location, int i, T t) {
+
+    }
+
+    @Override
+    public <T> void spawnParticle(Particle particle, double v, double v1, double v2, int i, T t) {
+
+    }
+
+    @Override
+    public void spawnParticle(Particle particle, Location location, int i, double v, double v1, double v2) {
+
+    }
+
+    @Override
+    public void spawnParticle(Particle particle, double v, double v1, double v2, int i, double v3, double v4, double v5) {
+
+    }
+
+    @Override
+    public <T> void spawnParticle(Particle particle, Location location, int i, double v, double v1, double v2, T t) {
+
+    }
+
+    @Override
+    public <T> void spawnParticle(Particle particle, double v, double v1, double v2, int i, double v3, double v4, double v5, T t) {
+
+    }
+
+    @Override
+    public void spawnParticle(Particle particle, Location location, int i, double v, double v1, double v2, double v3) {
+
+    }
+
+    @Override
+    public void spawnParticle(Particle particle, double v, double v1, double v2, int i, double v3, double v4, double v5, double v6) {
+
+    }
+
+    @Override
+    public <T> void spawnParticle(Particle particle, Location location, int i, double v, double v1, double v2, double v3, T t) {
+
+    }
+
+    @Override
+    public <T> void spawnParticle(Particle particle, double v, double v1, double v2, int i, double v3, double v4, double v5, double v6, T t) {
+
+    }
+
+    @Override
+    public AdvancementProgress getAdvancementProgress(Advancement advancement) {
+        return null;
+    }
+
+    @Override
+    public String getLocale() {
+        return null;
+    }
+
+    @Override
+    public void updateCommands() {
+
+    }
+
+    @Override
+    public Spigot spigot() {
+        return null;
+    }
+
     @Override public void setHealthScale(double arg0) { }
     @Override public void setHealthScaled(boolean arg0) { }
     @Override public boolean isHealthScaled() { return false; }
     @Override @Deprecated public void playSound(Location arg0, String arg1, float arg2, float arg3) { }
+
+    @Override
+    public void playSound(Location location, Sound sound, SoundCategory soundCategory, float v, float v1) {
+
+    }
+
+    @Override
+    public void playSound(Location location, String s, SoundCategory soundCategory, float v, float v1) {
+
+    }
+
+    @Override
+    public void stopSound(Sound sound) {
+
+    }
+
+    @Override
+    public void stopSound(String s) {
+
+    }
+
+    @Override
+    public void stopSound(Sound sound, SoundCategory soundCategory) {
+
+    }
+
+    @Override
+    public void stopSound(String s, SoundCategory soundCategory) {
+
+    }
+
     @Override public boolean setLeashHolder(Entity arg0) { return false; }
+
+    @Override
+    public boolean isGliding() {
+        return false;
+    }
+
+    @Override
+    public void setGliding(boolean b) {
+
+    }
+
+    @Override
+    public boolean isSwimming() {
+        return false;
+    }
+
+    @Override
+    public void setSwimming(boolean b) {
+
+    }
+
+    @Override
+    public boolean isRiptiding() {
+        return false;
+    }
+
+    @Override
+    public void setAI(boolean b) {
+
+    }
+
+    @Override
+    public boolean hasAI() {
+        return false;
+    }
+
+    @Override
+    public void setCollidable(boolean b) {
+
+    }
+
+    @Override
+    public boolean isCollidable() {
+        return false;
+    }
+
     @Override public Entity getLeashHolder() { return null; }
     @Override public boolean isLeashed() { return false; }
     @Override public void setResourcePack(String arg0) { }
+
+    @Override
+    public void setResourcePack(String s, byte[] bytes) {
+
+    }
+
     @Override public <T extends Projectile> T launchProjectile(Class<? extends T> arg0, Vector arg1) { return null;     }
     @Override public void decrementStatistic(Statistic arg0) throws IllegalArgumentException { }
     @Override public void decrementStatistic(Statistic arg0, int arg1) throws IllegalArgumentException { }
@@ -315,12 +725,9 @@ public class DummyPlayer implements Player {
     @Override public List<Block> getLineOfSight(Set<Material> transparent, int maxDistance) {   return null; }
     @Override public Block getTargetBlock(Set<Material> transparent, int maxDistance) { return null; }
     @Override public List<Block> getLastTwoTargetBlocks(Set<Material> transparent, int maxDistance) { return null; }
-	@Override public int _INVALID_getLastDamage() { return 0; }
-	@Override public void _INVALID_setLastDamage(int arg0) { }
-	@Override public void _INVALID_damage(int arg0) { }
-	@Override public void _INVALID_damage(int arg0, Entity arg1) { }
-	@Override public int  _INVALID_getHealth() { return 0; }
-	@Override public int  _INVALID_getMaxHealth() { return 0; }
-	@Override public void _INVALID_setHealth(int arg0) { }
-	@Override public void _INVALID_setMaxHealth(int arg0) { }
+
+    @Override
+    public AttributeInstance getAttribute(Attribute attribute) {
+        return null;
+    }
 }

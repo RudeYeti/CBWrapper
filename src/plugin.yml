@@ -1,6 +1,8 @@
 name: CBWrapper
 main: misson20000.plugins.cbwrapper.CBWrapper
-version: 1.8
+version: 1.9
+api-version: 1.13
+authors: [mission20000, eirikh1996]
 
 commands:
   cw:
