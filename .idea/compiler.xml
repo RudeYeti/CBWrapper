@@ -6,11 +6,30 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="CBWrapper" />
+        <module name="1_10_R1" />
+        <module name="cbwrapper-api" />
+        <module name="cbwrapper-v1_11_R1" />
+        <module name="cbwrapper-v1_12_R1" />
+        <module name="cbwrapper-v1_13_R2" />
+        <module name="cbwrapper-v1_14_R1" />
+      </profile>
+      <profile name="Annotation profile for cbwrapper-parent" enabled="true">
+        <sourceOutputDir name="../target/generated-sources/annotations" />
+        <sourceTestOutputDir name="../target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="main" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="CBWrapper" target="1.7" />
+      <module name="1_10_R1" target="1.8" />
+      <module name="1_13_R2" target="1.8" />
+      <module name="CBWrapper 2" target="1.8" />
+      <module name="cbwrapper-api" target="1.8" />
+      <module name="cbwrapper-v1_11_R1" target="1.8" />
+      <module name="cbwrapper-v1_12_R1" target="1.8" />
+      <module name="cbwrapper-v1_13_R2" target="1.8" />
+      <module name="cbwrapper-v1_14_R1" target="1.8" />
+      <module name="main" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

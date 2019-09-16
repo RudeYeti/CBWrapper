@@ -1,0 +1,13 @@
+name: CBWrapper
+main: mission20000.plugins.cbwrapper.CBWrapper
+version: 2.0
+api-version: 1.13
+authors: [mission20000, eirikh1996]
+
+commands:
+  cw:
+    description: This will forward commands as a dummy player for command blocks
+    usage: /cw [-w world] [-o x y z] [-u username] (command) [args]
+    permission: cbwrapper.cw
+    permission-message: You don't have cbwrapper.cb permission
+    aliases: [cb]
