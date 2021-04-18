@@ -3,12 +3,18 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>cbwrapper-parent</artifactId>
+        <artifactId>CBWrapper-Parent</artifactId>
         <groupId>mission20000.plugins</groupId>
         <version>Parent</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
+
     <modelVersion>4.0.0</modelVersion>
+    <artifactId>cbwrapper-api</artifactId>
+    <version>API</version>
+    <packaging>jar</packaging>
+    <name>CBWrapper-API</name>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.jupiter.version>5.2.0</junit.jupiter.version>
@@ -16,10 +22,7 @@
         <junit.platform.version>1.2.0</junit.platform.version>
         <junit.version>4.12</junit.version>
     </properties>
-    <artifactId>cbwrapper-api</artifactId>
-    <version>API</version>
-    <packaging>jar</packaging>
-    <name>CBWrapper-API</name>
+
     <dependencies>
         <dependency>
             <groupId>org.jetbrains</groupId>
@@ -45,6 +48,7 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
     <build>
         <sourceDirectory>src/main/java</sourceDirectory>
         <testSourceDirectory>src/test</testSourceDirectory>
@@ -94,5 +98,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

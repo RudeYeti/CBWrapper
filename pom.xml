@@ -4,33 +4,51 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>mission20000.plugins</groupId>
-    <artifactId>cbwrapper-parent</artifactId>
+    <artifactId>CBWrapper-Parent</artifactId>
     <packaging>pom</packaging>
     <version>Parent</version>
 
     <modules>
-
         <module>api</module>
-        <module>version/v1_13_R2</module>
-        <module>version/v1_12_R1</module>
-        <module>version/v1_11_R1</module>
         <module>version/v1_10_R1</module>
+        <module>version/v1_11_R1</module>
+        <module>version/v1_12_R1</module>
+        <module>version/v1_13_R2</module>
         <module>version/v1_14_R1</module>
         <module>main</module>
-
     </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>spigot-repo</id>
+            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+        </repository>
+        <repository>
+            <id>mikeprimm-repo</id>
+            <url>https://repo.mikeprimm.com/</url>
+        </repository>
+        <repository>
+            <id>sk89q-repo</id>
+            <url>https://maven.sk89q.com/repo/</url>
+        </repository>
+    </repositories>
+
     <dependencies>
         <dependency>
             <groupId>org.bukkit</groupId>
             <artifactId>bukkit</artifactId>
-            <version>LATEST</version><!--change this value depending on the version or use LATEST-->
+            <version>LATEST</version>
             <type>jar</type>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.14.2-R0.1-SNAPSHOT</version><!--change this value depending on the version-->
+            <version>1.14.4-R0.1-SNAPSHOT</version>
             <type>jar</type>
             <scope>provided</scope>
         </dependency>
@@ -38,22 +56,10 @@
             <groupId>com.sk89q</groupId>
             <artifactId>worldedit</artifactId>
             <version>LATEST</version>
+            <type>jar</type>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-    
-    <repositories>
-        <repository>
-            <id>spigot-repo</id>
-            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
-        </repository>
-        <repository>
-            <id>sk89q-repo</id>
-            <url>http://maven.sk89q.com/repo/</url>
-        </repository>
-    </repositories>
 
     <build>
         <plugins>
@@ -67,5 +73,4 @@
             </plugin>
         </plugins>
     </build>
-    
 </project>

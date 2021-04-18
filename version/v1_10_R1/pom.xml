@@ -3,24 +3,24 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>cbwrapper-parent</artifactId>
+        <artifactId>CBWrapper-Parent</artifactId>
         <groupId>mission20000.plugins</groupId>
         <version>Parent</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
+
     <modelVersion>4.0.0</modelVersion>
     <artifactId>cbwrapper-v1_10_R1</artifactId>
-    <name>CBWrapper-v1_10_R1</name>
     <version>v1_10_R1</version>
     <packaging>jar</packaging>
-<repositories>
+    <name>CBWrapper-v1_10_R1</name>
 
-    <repository>
-        <id>sk89q-repo</id>
-        <url>http://maven.sk89q.com/repo/</url>
-    </repository>
-</repositories>
     <dependencies>
+        <dependency>
+            <groupId>org.bukkit</groupId>
+            <artifactId>craftbukkit</artifactId>
+            <version>1.10.2-R0.1-SNAPSHOT</version>
+        </dependency>
         <dependency>
             <groupId>mission20000.plugins</groupId>
             <artifactId>cbwrapper-api</artifactId>
@@ -28,17 +28,8 @@
             <type>jar</type>
             <scope>compile</scope>
         </dependency>
-        <dependency>
-            <groupId>org.bukkit</groupId>
-            <artifactId>craftbukkit</artifactId>
-            <version>1.10.2-R0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.sk89q</groupId>
-            <artifactId>worldedit</artifactId>
-            <version>LATEST</version>
-        </dependency>
     </dependencies>
+
     <build>
         <plugins>
             <plugin>

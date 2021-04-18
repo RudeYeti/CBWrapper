@@ -3,20 +3,22 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>cbwrapper-parent</artifactId>
+        <artifactId>CBWrapper-Parent</artifactId>
         <groupId>mission20000.plugins</groupId>
         <version>Parent</version>
-        <relativePath>../../</relativePath>
+        <relativePath>../../pom.xml</relativePath>
     </parent>
+
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>cbwrapper-1_13_R2</artifactId>
+    <artifactId>cbwrapper-v1_13_R2</artifactId>
     <version>v1_13_R2</version>
     <packaging>jar</packaging>
-    <name>CBWrapper-1_13_R2</name>
+    <name>CBWrapper-v1_13_R2</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.bukkit</groupId>
@@ -29,8 +31,8 @@
             <version>API</version>
             <type>jar</type>
         </dependency>
-
     </dependencies>
+
     <build>
         <sourceDirectory>src/main/java</sourceDirectory>
         <plugins>

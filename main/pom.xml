@@ -3,44 +3,27 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>cbwrapper-parent</artifactId>
+        <artifactId>CBWrapper-Parent</artifactId>
         <groupId>mission20000.plugins</groupId>
         <version>Parent</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
+
     <modelVersion>4.0.0</modelVersion>
     <artifactId>cbwrapper</artifactId>
     <version>2.0</version>
     <packaging>jar</packaging>
     <name>CBWrapper</name>
 
-    <dependencies>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
+    <dependencies>
         <dependency>
             <groupId>mission20000.plugins</groupId>
-            <artifactId>cbwrapper-v1_14_R1</artifactId>
-            <version>v1_14_R1</version>
-            <type>jar</type>
-        </dependency>
-        <dependency>
-            <groupId>mission20000.plugins</groupId>
-            <artifactId>cbwrapper-1_13_R2</artifactId>
-            <version>v1_13_R2</version>
-            <type>jar</type>
-        </dependency>
-        <dependency>
-            <groupId>mission20000.plugins</groupId>
-            <artifactId>cbwrapper-1_12_R1</artifactId>
-            <version>1_12_R1</version>
-            <type>jar</type>
-        </dependency>
-        <dependency>
-            <groupId>mission20000.plugins</groupId>
-            <artifactId>cbwrapper-1_11_R1</artifactId>
-            <version>1_11_R1</version>
+            <artifactId>cbwrapper-v1_10_R1</artifactId>
+            <version>v1_10_R1</version>
             <type>jar</type>
             <exclusions>
                 <exclusion>
@@ -51,8 +34,8 @@
         </dependency>
         <dependency>
             <groupId>mission20000.plugins</groupId>
-            <artifactId>cbwrapper-1_10_R1</artifactId>
-            <version>1_10_R1</version>
+            <artifactId>cbwrapper-v1_11_R1</artifactId>
+            <version>v1_11_R1</version>
             <type>jar</type>
             <exclusions>
                 <exclusion>
@@ -65,6 +48,24 @@
             <groupId>mission20000.plugins</groupId>
             <artifactId>cbwrapper-api</artifactId>
             <version>API</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>mission20000.plugins</groupId>
+            <artifactId>cbwrapper-v1_12_R1</artifactId>
+            <version>v1_12_R1</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>mission20000.plugins</groupId>
+            <artifactId>cbwrapper-v1_13_R2</artifactId>
+            <version>v1_13_R2</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>mission20000.plugins</groupId>
+            <artifactId>cbwrapper-v1_14_R1</artifactId>
+            <version>v1_14_R1</version>
             <type>jar</type>
         </dependency>
     </dependencies>
@@ -107,7 +108,5 @@
                 </executions>
             </plugin>
         </plugins>
-
     </build>
-
 </project>

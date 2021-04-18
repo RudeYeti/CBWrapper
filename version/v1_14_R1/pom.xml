@@ -10,16 +10,20 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>cbwrapper-v1_12_R1</artifactId>
-    <version>v1_12_R1</version>
+    <artifactId>cbwrapper-v1_14_R1</artifactId>
+    <version>v1_14_R1</version>
     <packaging>jar</packaging>
-    <name>CBWrapper-v1_12_R1</name>
+    <name>CBWrapper-v1_14_R1</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.bukkit</groupId>
             <artifactId>craftbukkit</artifactId>
-            <version>1.12.2-R0.1-SNAPSHOT</version>
+            <version>1.14.1-R0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>mission20000.plugins</groupId>
@@ -31,13 +35,14 @@
     </dependencies>
 
     <build>
+        <sourceDirectory>src/main/java</sourceDirectory>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
                     <includes>
-                        <include>mission20000/plugins/cbwrapper/compat/v1_12_R1/**</include>
+                        <include>mission20000/plugins/cbwrapper/compat/v1_14_R1/**</include>
                     </includes>
                     <source>1.8</source>
                     <target>1.8</target>
@@ -49,7 +54,7 @@
                 <version>2.4</version>
                 <configuration>
                     <includes>
-                        <include>mission20000/plugins/cbwrapper/compat/v1_12_R1/**</include>
+                        <include>mission20000/plugins/cbwrapper/compat/v1_14_R1/**</include>
                     </includes>
                 </configuration>
             </plugin>
